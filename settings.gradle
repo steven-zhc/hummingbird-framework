@@ -1,0 +1,6 @@
+rootProject.name = 'hummingbird-framework'
+
+include 'hummingbird-spi'
+include 'hummingbird-runtime'
+include 'hummingbird-spring'
+

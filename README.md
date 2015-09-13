@@ -6,7 +6,7 @@ An implementation of DDD, CQRS, EventStore and etc.
 
 This is core framework for user management team.
 
-![image](https://confluence.fuhu.org/download/attachments/9308369/framework.png?version=2&modificationDate=1424288061000&api=v2 =324x209)
+TODO add Image
 
 ## Quickstart
 

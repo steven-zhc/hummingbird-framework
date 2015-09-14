@@ -11,7 +11,7 @@ TODO add Image
 ## Quickstart
 
 ### Checkout Code
-     git clone git@dev-git.fuhu.org:um-dev/hummingbird-framework.git
+     git clone https://github.com/steven-zhc/hummingbird-framework.git
      cd hummingbird-framework
      gradlew clean build
 

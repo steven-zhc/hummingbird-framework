@@ -5,6 +5,9 @@ subprojects {
     apply plugin: 'java'
     apply plugin: 'maven-publish'
 
+    group 'com.hczhang.hummingbird'
+    version '0.2'
+
     ext.spring_version = '4.1.7.RELEASE'
 
     sourceCompatibility = 1.8

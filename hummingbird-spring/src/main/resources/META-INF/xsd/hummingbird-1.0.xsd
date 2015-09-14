@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns="http://www.hczhang.com/schema/hummingbird-1.0"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            xmlns:beans="http://www.springframework.org/schema/beans"
+            targetNamespace="http://www.hczhang.com/schema/hummingbird-1.0"
+            elementFormDefault="qualified"
+            attributeFormDefault="unqualified">
+
+    <xsd:import namespace="http://www.springframework.org/schema/beans"/>
+
+    <xsd:element name="metrics">
+        <xsd:complexType>
+            <xsd:attribute type="xsd:string" name="enable"/>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="eventrouter">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:choice minOccurs="0" maxOccurs="1">
+                        <xsd:element name="filters" type="filterType"/>
+                    </xsd:choice>
+                    <xsd:attribute name="type" use="required" type="xsd:string"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="eventstore">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:choice minOccurs="0" maxOccurs="1">
+                        <xsd:element name="filter" type="filterType"/>
+                    </xsd:choice>
+                    <xsd:attribute name="type" use="required" type="xsd:string"/>
+                    <xsd:attribute name="hybird" use="optional" type="xsd:boolean" default="false"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="eventlog">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:choice minOccurs="0" maxOccurs="1">
+                        <xsd:element name="filter" type="filterType"/>
+                    </xsd:choice>
+                    <xsd:attribute name="type" use="required" type="xsd:string"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="fog">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:choice minOccurs="0" maxOccurs="1">
+                        <xsd:element name="filter" type="filterType"/>
+                    </xsd:choice>
+                    <xsd:attribute name="type" use="required" type="xsd:string"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="itemType">
+        <xsd:simpleContent>
+            <xsd:extension base="xsd:string">
+                <xsd:attribute type="xsd:string" name="class"/>
+            </xsd:extension>
+        </xsd:simpleContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="refType">
+        <xsd:attribute name="ref" type="xsd:string" use="required"/>
+    </xsd:complexType>
+
+    <xsd:complexType name="logsType">
+        <xsd:choice minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="log" type="refType"/>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="filterType">
+        <xsd:choice minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="item" type="itemType"/>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="lifecycleType">
+        <xsd:choice minOccurs="0" maxOccurs="unbounded">
+            <xsd:element name="item" type="itemType"/>
+        </xsd:choice>
+    </xsd:complexType>
+
+    <xsd:complexType name="fogType">
+        <xsd:sequence>
+            <xsd:element name="l1" type="refType" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="l2" type="refType" minOccurs="0" maxOccurs="1"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="cloud">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="fogs" type="fogType" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="logs" type="logsType" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="lifecycle" type="lifecycleType" minOccurs="0" maxOccurs="1"/>
+            </xsd:sequence>
+
+            <xsd:attribute name="id" type="xsd:ID" use="required"/>
+
+            <xsd:attribute type="xsd:string" name="package" use="required"/>
+            <xsd:attribute type="xsd:string" name="eventstore" use="required"/>
+            <xsd:attribute type="xsd:string" name="eventrouter" use="optional"/>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="gateway">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:attribute type="xsd:string" name="package" use="required"/>
+                    <xsd:attribute type="xsd:string" name="cloud" use="required"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="cassandra">
+        <xsd:complexType>
+            <xsd:complexContent>
+                <xsd:extension base="beans:identifiedType">
+                    <xsd:attribute type="xsd:string" name="points"/>
+                    <xsd:attribute type="xsd:string" name="keyspace"/>
+                    <xsd:attribute type="xsd:string" name="username"/>
+                    <xsd:attribute type="xsd:string" name="password"/>
+                </xsd:extension>
+            </xsd:complexContent>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>

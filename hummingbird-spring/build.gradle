@@ -1,0 +1,12 @@
+description = "Hummingbird spring module"
+
+
+dependencies {
+
+    compile project(':hummingbird-spi')
+    compile project(':hummingbird-runtime')
+
+    compile "org.springframework:spring-context:${spring_version}"
+    compile "org.springframework:spring-expression:${spring_version}"
+
+}

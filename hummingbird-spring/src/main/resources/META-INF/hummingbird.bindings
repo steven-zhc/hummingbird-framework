@@ -1,0 +1,3 @@
+hummingbird.ext.class=com.hczhang.hummingbird.spring.def.DefaultEventLogBinding,\
+    com.hczhang.hummingbird.spring.def.DefaultEventRouterBinding,\
+    com.hczhang.hummingbird.spring.def.DefaultEventStoreBinding

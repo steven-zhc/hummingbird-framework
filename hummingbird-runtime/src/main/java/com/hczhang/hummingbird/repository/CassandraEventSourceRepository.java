@@ -8,10 +8,12 @@ import com.hczhang.hummingbird.event.EventConstants;
 import com.hczhang.hummingbird.eventsource.EventSourceException;
 import com.hczhang.hummingbird.model.EventSourceAggregateRoot;
 import com.hczhang.hummingbird.model.exception.ModelRuntimeException;
-import com.hczhang.hummingbird.repository.AbstractEventSourceRepository;
 import com.hczhang.hummingbird.serializer.JsonSerializer;
 import com.hczhang.hummingbird.serializer.Serializer;
 import com.hczhang.hummingbird.util.HBAssert;
+import com.hczhang.ostrich.BatchPreparedStatementSetter;
+import com.hczhang.ostrich.CassandraTemplate;
+import com.hczhang.ostrich.RowMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

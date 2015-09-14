@@ -19,7 +19,7 @@ public @interface Factory {
      *
      * @return the class
      */
-    Class<? extends AggregateRoot> value();
+    Class<? extends com.hczhang.hummingbird.model.AggregateRoot> value();
 
     /**
      * Source factory source.

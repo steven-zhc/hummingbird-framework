@@ -1,0 +1,17 @@
+description = "Hummingbird runtime module. Including some basic infrastructures and implementations."
+
+
+dependencies {
+
+    compile project(':hummingbird-spi')
+
+    compile 'com.hczhang:ostrich:0.1'
+
+    // TODO: spring should be removed later.
+    // Spring
+    compile "org.springframework:spring-context:${spring_version}"
+
+    // Gson
+    compile 'com.google.code.gson:gson:2.3'
+
+}

@@ -3,6 +3,7 @@ version '0.2'
 
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'maven-publish'
 
     ext.spring_version = '4.1.7.RELEASE'
 
@@ -30,6 +31,14 @@ subprojects {
         // Test lib
         testCompile 'org.testng:testng:6.9.4'
         testCompile 'org.mockito:mockito-core:1.9.5'
+    }
+
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+            }
+        }
     }
 }
 

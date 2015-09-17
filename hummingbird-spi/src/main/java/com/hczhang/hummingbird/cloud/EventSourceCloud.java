@@ -1,7 +1,6 @@
 package com.hczhang.hummingbird.cloud;
 
 
-import com.hczhang.hummingbird.cloud.Cloud;
 import com.hczhang.hummingbird.event.Event;
 import com.hczhang.hummingbird.event.Handler;
 import com.hczhang.hummingbird.eventbus.EventRouter;
@@ -26,14 +25,12 @@ public interface EventSourceCloud extends Cloud {
      * Get event source based repository object.
      *
      * @return Repository is subclass of IEventSourceRepository
-     * @see
      */
     EventSourceRepository getEventSourceRepository();
 
     /**
      * Get event router.
      * @return A event router
-     * @see
      */
     EventRouter getEventRouter();
 
@@ -65,7 +62,7 @@ public interface EventSourceCloud extends Cloud {
      * Spread a event to a aggregate class. the main steps this method does:
      * 1. get or create a concrete aggregate object.
      * 2. apply event on object created by step 1.
-     * @param <T>   Concrete aggregate class.
+     * @param <T>    Concrete aggregate class.
      * @param context Transaction context
      * @param event Event.
      * @param type Aggregate class type
@@ -76,7 +73,7 @@ public interface EventSourceCloud extends Cloud {
     /**
      * Compare with the other event spread methods. this method will spread event to concrete object.
      *
-     * @param <T>   the type parameter
+     * @param <T>    the type parameter
      * @param context the context
      * @param event the event
      * @param obj the obj

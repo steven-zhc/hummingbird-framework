@@ -18,7 +18,7 @@ public interface Command<ID> {
      * The method will return the unique id (Aggregate ID) of {@code IModel} Object.
      * That mean the command will do operation on that model.
      * Some time we call it target Aggregate ID.
-     * <p/>
+     * <p>
      * Sometime Aggregate ID could be null if this is initial command. That means
      * this command will create new {@code IModel}. Otherwise the aggregate ID must not be null.
      * @return Target Aggregate ID.

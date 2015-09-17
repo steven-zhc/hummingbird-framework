@@ -1,9 +1,8 @@
-group 'com.hczhang.hummingbird'
-version '0.2'
 
 subprojects {
     apply plugin: 'java'
-    apply plugin: 'maven-publish'
+    apply plugin: 'maven'
+    apply plugin: 'signing'
 
     group 'com.hczhang.hummingbird'
     version '0.2'
@@ -36,10 +35,67 @@ subprojects {
         testCompile 'org.mockito:mockito-core:1.9.5'
     }
 
-    publishing {
-        publications {
-            mavenJava(MavenPublication) {
-                from components.java
+    task javadocJar(type: Jar) {
+        classifier = 'javadoc'
+        from javadoc
+    }
+
+    task sourcesJar(type: Jar) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+
+    artifacts {
+        archives jar, javadocJar, sourcesJar
+    }
+
+    signing {
+        sign configurations.archives
+    }
+
+    uploadArchives {
+        repositories {
+            mavenDeployer {
+                beforeDeployment {
+                    MavenDeployment deployment -> signing.signPom(deployment)
+                }
+
+                repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                    authentication(userName: ossrhUsername, password: ossrhPassword)
+                }
+
+                snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                    authentication(userName: ossrhUsername, password: ossrhPassword)
+                }
+
+                pom.project {
+                    name 'ostrich'
+                    packaging 'jar'
+                    // optionally artifactId can be defined here
+                    description 'A simple cassandra util using DAO and Template pattern'
+                    url 'https://github.com/steven-zhc/ostrich'
+
+                    scm {
+                        connection 'scm:git@github.com:steven-zhc/ostrich.git'
+                        developerConnection 'scm:git@github.com:steven-zhc/ostrich.git'
+                        url 'https://github.com/steven-zhc/ostrich.git'
+                    }
+
+                    licenses {
+                        license {
+                            name 'The Apache License, Version 2.0'
+                            url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                        }
+                    }
+
+                    developers {
+                        developer {
+                            id 'steven.zhang'
+                            name 'Haichao Zhang'
+                            email 'steven.zhang031@gmail.com'
+                        }
+                    }
+                }
             }
         }
     }

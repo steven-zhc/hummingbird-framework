@@ -14,14 +14,12 @@ public interface EventSource {
     /**
      * Save an Event to EventSource
      * @param event IEvent.
-     * @see
      */
     void save(Event event);
 
     /**
      * Save a queue of Event to EventSource
      * @param eventStream A queue of events
-     * @see
      */
     void save(Queue<Event> eventStream);
 
@@ -33,7 +31,7 @@ public interface EventSource {
     Queue<Event> loadEvents(Object id);
 
     /**
-     * Get event stream since specific version (not include, > {@code sinceVersion})
+     * Get event stream since specific version (not include, %3E {@code sinceVersion})
      * @param id Aggregate ID
      * @param sinceVersion After this version will be return.
      * @return A stream of events.
@@ -55,7 +53,7 @@ public interface EventSource {
      *
      * <p>
      *     <b>Warning: </b> the action cannot be rollback.
-     * </p>
+     *
      *
      * @param aid the aid
      * @param version the version

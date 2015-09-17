@@ -17,7 +17,7 @@ public class HBAssert extends org.apache.commons.lang3.Validate {
      * <pre>HBAssert.notNull(myObject, "The object must not be null");</pre>
      *
      * <p>The message of the exception is &quot;The validated object is
-     * null&quot;.</p>
+     * null&quot;.
      *
      * @param <T>  the object type
      * @param object the object to check
@@ -27,7 +27,7 @@ public class HBAssert extends org.apache.commons.lang3.Validate {
      * @return the validated object (never
      * for method chaining)
      * @throws NullPointerException if the object is
-     * @see #notNull(Object, String, Object...)
+     *  #notNull(Object, String, Object...)
      */
     public static <T> T notNull(final T object, Class<? extends RuntimeException> exception, final String message, final Object... values) {
         if (object == null) {
@@ -44,7 +44,7 @@ public class HBAssert extends org.apache.commons.lang3.Validate {
      * <pre>HBAssert.notEmpty(myString);</pre>
      *
      * <p>The message in the exception is &quot;The validated
-     * character sequence is empty&quot;.</p>
+     * character sequence is empty&quot;.
      *
      * @param <T>  the character sequence type
      * @param chars the character sequence to check, validated not null by this method
@@ -55,7 +55,7 @@ public class HBAssert extends org.apache.commons.lang3.Validate {
      * method for chaining)
      * @throws NullPointerException if the character sequence is
      * @throws IllegalArgumentException if the character sequence is empty
-     * @see #notEmpty(CharSequence, String, Object...)
+     *  #notEmpty(CharSequence, String, Object...)
      */
     public static <T extends CharSequence> T notEmpty(final T chars, Class<? extends RuntimeException> exception, final String message, final Object... values) {
         if (chars == null || chars.length() == 0) {
@@ -81,7 +81,7 @@ public class HBAssert extends org.apache.commons.lang3.Validate {
      * @param values the optional values for the formatted exception message, null array not recommended
      * @return the validated character sequence (never
      * method for chaining)
-     * @see #notBlank(CharSequence)
+     *  #notBlank(CharSequence)
      */
     public static <T extends CharSequence> T notBlank(final T chars, Class<? extends RuntimeException> exception, final String message, final Object... values) {
         if (chars == null || StringUtils.isBlank(chars)) {
@@ -94,7 +94,7 @@ public class HBAssert extends org.apache.commons.lang3.Validate {
      * <p>Validate that the argument condition is {@code true}; otherwise
      * throwing an custom exception with the specified message. This method is useful when
      * validating according to an arbitrary boolean expression, such as validating a
-     * primitive number or using your own custom validation expression.</p>
+     * primitive number or using your own custom validation expression.
      *
      * <pre>
      * Validate.isTrue(i &gt;= min &amp;&amp; i &lt;= max, "The value must be between &#37;d and &#37;d", min, max);
@@ -106,9 +106,9 @@ public class HBAssert extends org.apache.commons.lang3.Validate {
      * exception message if invalid, not null
      * @param values the optional values for the formatted exception message, null array not recommended
      * @throws IllegalArgumentException if expression is
-     * @see #isTrue(boolean)
-     * @see #isTrue(boolean, String, long)
-     * @see #isTrue(boolean, String, double)
+     *  #isTrue(boolean)
+     *  #isTrue(boolean, String, long)
+     *  #isTrue(boolean, String, double)
      */
     public static void isTrue(final boolean expression, Class<? extends RuntimeException> exception, final String message, final Object... values) {
         if (expression == false) {

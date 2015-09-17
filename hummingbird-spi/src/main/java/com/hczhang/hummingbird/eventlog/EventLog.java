@@ -16,7 +16,7 @@ public interface EventLog {
      * Save an Event Log
      * @param event IEvent.
      * @param root the root
-     * @see
+     *
      */
     void log(Event event, AggregateRoot root);
 
@@ -24,7 +24,7 @@ public interface EventLog {
      * Save an EventStream to Log
      * @param eventStream A queue of events
      * @param root the root
-     * @see
+     *
      */
     void log(Queue<Event> eventStream, AggregateRoot root);
 }

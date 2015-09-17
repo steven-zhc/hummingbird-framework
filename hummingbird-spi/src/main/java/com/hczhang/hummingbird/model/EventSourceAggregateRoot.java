@@ -26,7 +26,7 @@ public interface EventSourceAggregateRoot<ID> extends AggregateRoot<ID> {
      * but have applied to current model object.
      *
      * @return A un-committed evens stream
-     * @see
+     *
      */
     Queue<Event> getUncommittedEvents();
 
@@ -35,7 +35,7 @@ public interface EventSourceAggregateRoot<ID> extends AggregateRoot<ID> {
      * This method push event to uncommitted events stream
      * and invoke the event handler method in the same model class.
      * @param event will be applied.
-     * @see
+     *
      */
     void applyEvent(Event event);
 

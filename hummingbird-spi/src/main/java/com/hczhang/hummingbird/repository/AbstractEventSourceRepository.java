@@ -27,7 +27,7 @@ import static com.codahale.metrics.MetricRegistry.name;
  * Provide a default replay function to redo all events on object. And return finalized object.
  * The concrete Repository should extend this class, and provide serialize and de-serialize methods
  * by specific store strategy.
- * <p/>
+ * <br>
  * Created by steven on 4/30/14.
  */
 public abstract class AbstractEventSourceRepository implements EventSourceRepository {
@@ -39,7 +39,7 @@ public abstract class AbstractEventSourceRepository implements EventSourceReposi
 
     /**
      * The Hybird mode, which means this repository will retrieve aggregate through event source and QX query database togather.
-     * Normarlly, we use hibrid mode to compatible with legacy system. <br/>
+     * Normarlly, we use hibrid mode to compatible with legacy system. <br>
      * False, this repository will retrieve object only by eventsource.
      */
     protected boolean hybird = false;
@@ -213,6 +213,7 @@ public abstract class AbstractEventSourceRepository implements EventSourceReposi
     /**
      * Replay event source aggregate root.
      *
+     * @param <T>  the type parameter
      * @param model the model
      * @param es the queue of event
      * @return the event source aggregate root

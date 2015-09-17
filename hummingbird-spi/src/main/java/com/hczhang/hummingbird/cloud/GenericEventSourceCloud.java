@@ -43,9 +43,9 @@ import java.util.concurrent.CopyOnWriteArraySet;
  * A generic implementation for EventSourceCloud.
  *
  * <p>
- * <h3>Step 1:</h3> To make the cloud work, please setup the following attributes of Cloud
+ * <em>Step 1:</em> To make the cloud work, please setup the following attributes of Cloud
  *
- * <br/> Note: All of them are required.
+ * Note: All of them are required.
  * <ul>
  *     <li>EventStore</li>
  * </ul>
@@ -56,18 +56,15 @@ import java.util.concurrent.CopyOnWriteArraySet;
  * </pre>
  * WARNING: QXSyncEventLog need repositories. Please don't forget to configure repository at step 4 if you need QX system.
  *
- * </p>
  *
- * <p>
  * <h3>Step 2:</h3> Register 1 or more Aggregate/Domain Service. The framework needs
  * to know where are events/commands come from, and they'll come to.
  * <pre>
  *     cloud.addCrystal(domainServiceObject);
  *     cloud.registerDewPrototype(ClassOfAggregate);
  * </pre>
- * </p>
  *
- * <p>
+ *
  * <h3>Step 3 (Optional): </h3>
  * Add more components.
  * Note: all of them are optional.
@@ -76,12 +73,10 @@ import java.util.concurrent.CopyOnWriteArraySet;
  *     <li>Event Log</li>
  *     <li>Event Router - The default router is null.</li>
  * </ul>
- * </p>
  *
- * <p>
  *
  * <h3>Step 4 (Optional):</h3>
- * Register component(s) for legacy system. <br/>
+ * Register component(s) for legacy system. <br>
  * The framework will use AggregateFactory to load Aggregate from Legacy Database.
  * And use AggregateRepository to insert/update/delete Aggregate on Legacy Database.
  *
@@ -91,14 +86,14 @@ import java.util.concurrent.CopyOnWriteArraySet;
  *     // it will be used by AggregateFactory.
  *     cloud.addRepository(AggregateRepository, ClassOfAggregate);
  * </pre>
- * </p>
  *
- * <p>
+ *
  * <h3>Step5: Start Cloud</h3>
  * <pre>
  *     cloud.launch();
  * </pre>
- * </p>
+ *
+ *
  * Created by steven on 5/21/14.
  */
 public class GenericEventSourceCloud implements LegacyAdaptor, QXAdaptor, EventSourceCloud, CloudMonitor {
@@ -136,52 +131,52 @@ public class GenericEventSourceCloud implements LegacyAdaptor, QXAdaptor, EventS
 
     /**
      * An object map the command to constructor or method.
-     * The cloud will search constructors and methods. <br/>
-     * Key: command class name <br/>
-     * Value: constructor <br/>
+     * The cloud will search constructors and methods. <br>
+     * Key: command class name <br>
+     * Value: constructor <br>
      */
     protected static Map<String, ServiceCommandMetadata> serviceCommandHandlers;
 
     /**
      * An object map the command to constructor or method.
      * The Cloud will scan constructors and methods on aggregate.
-     * Key: command class name <br/>
+     * Key: command class name <br>
      * Value: constructors and methods could received the command.
      */
     protected static Map<String, AggregateCommandMetadata> aggCommandHandlers;
 
     /**
-     * An object map the domain service name to domain service instance.<br/>
-     * Key: class name of service<br/>
-     * Value: service object<br/>
+     * An object map the domain service name to domain service instance.<br>
+     * Key: class name of service<br>
+     * Value: service object<br>
      */
     protected static Map<String, Object> domainServices;
 
     /**
      * An object map the event to event handler (Method).
-     * You could think as this is a cache of event methods. <br/>
-     * Key: class name of event  <br/>
-     * Value: event handler (method) <br/>
+     * You could think as this is a cache of event methods. <br>
+     * Key: class name of event  <br>
+     * Value: event handler (method) <br>
      */
     protected static Map<String, Method> eventsHandlers;
 
     /**
      * An object map the aggregate root type to aggregate id field.
-     * You could think as this is a cache of aggregateID of aggregate root.<br/>
+     * You could think as this is a cache of aggregateID of aggregate root.<br>
      * Key: class name of aggregate root.
      * Value: the field of aggregate id.
      */
     protected static Map<String, Field> aggregateIDs;
 
     /**
-     * An object map the aggregate root type to aggregate factory. <br/>
+     * An object map the aggregate root type to aggregate factory. <br>
      * Key: Aggregate class type
      * Value: factory class type
      */
     protected static Map<String, AggregateFactory> factories;
 
     /**
-     * An object map the aggregate class type to repository. <br/>
+     * An object map the aggregate class type to repository. <br>
      * Key: Aggregate class type
      * Value: Aggregate repository instance
      */
@@ -284,7 +279,7 @@ public class GenericEventSourceCloud implements LegacyAdaptor, QXAdaptor, EventS
      * Recognize a Crystal (service) class. which means the domain service
      * could be managed by framework.
      * The framework will scan a domain service class and find
-     * out all of useful methods. <br/>
+     * out all of useful methods. <br>
      * Here is what we concern:
      * <ul>
      *     <li>Command Handler</li>

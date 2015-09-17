@@ -22,10 +22,10 @@ public interface Cloud extends Lifecycle {
 
     /**
      * Register a aggregate class as dew prototype in cloud.
-     * This could be used in the future. <br/>
+     * This could be used in the future. <br>
      * which means the Aggregate (model) could be managemed by framework.
      * The framework will scan a class and find out all of
-     * useful methods and constructors. <br/>
+     * useful methods and constructors. <br>
      * Here is what we concern:
      * <ul>
      *     <li>Command Handler, including constructors and methods</li>

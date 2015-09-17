@@ -13,7 +13,7 @@ import com.hczhang.hummingbird.model.EventSourceAggregateRoot;
 public interface EventSourceRepository extends EventSource, Repository {
 
     /**
-     * Load a specific object by aggregate {@code id} and {@code type} of aggregate. <br/>
+     * Load a specific object by aggregate {@code id} and {@code type} of aggregate. <br>
      * The {@link Repository#load(Object id)} provide the same function and more easily use.
      * But that will cause a little bit performance cost. Because it need to do more to
      * identify the concrete type of aggregate. That's why we need this method if you know
@@ -22,12 +22,11 @@ public interface EventSourceRepository extends EventSource, Repository {
      * @param id aggregate id
      * @param type aggregate class type
      * @return aggregate t
-     * @see
      */
     <T extends EventSourceAggregateRoot> T load(Object id, Class<T> type);
 
     /**
-     * Try to load a specific version of Aggregate.<br/>.
+     * Try to load a specific version of Aggregate.<br>.
      *
      * @param <T>   the type parameter
      * @param aid the aid
@@ -79,7 +78,7 @@ public interface EventSourceRepository extends EventSource, Repository {
      * Drop snapshot which is greater than target version (not include {@code version}).
      * <p>
      *     <b>Warning: </b> the action cannot be rollback.
-     * </p>
+     *
      *
      * @param aid the aid
      * @param version the version

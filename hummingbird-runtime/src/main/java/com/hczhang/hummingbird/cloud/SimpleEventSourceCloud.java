@@ -26,9 +26,7 @@ import com.hczhang.hummingbird.repository.AggregateRepository;
  * <pre>
  *     cloud.setEventSourceRepository(EventSource);
  * </pre>
- * </p>
  *
- * <p>
  * <h3>Step 2: Register Aggregate/Aggregate Repository/Domain Service</h3>
  * <pre>
  *     // Add a domain service object
@@ -37,16 +35,12 @@ import com.hczhang.hummingbird.repository.AggregateRepository;
  *     // repository could be null if you don't need QX or legacy system.
  *     cloud.registerAggregate(ClassOfAggregate, AggregateRepository);
  * </pre>
- * </p>
  *
- * <p>
  * <h3>Step 3 Optinal: setup QX system</h3>
  * Note: this step is optional if you don't want to have the synchronizer for query system (QX).
  * <pre>
  *     this.addEventLog(new QXSyncEventLog());
  * </pre>
- *
- * </p>
  *
  * Created by steven on 9/15/14.
  */

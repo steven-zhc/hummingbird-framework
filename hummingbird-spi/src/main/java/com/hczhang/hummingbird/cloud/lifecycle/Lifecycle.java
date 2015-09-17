@@ -2,7 +2,7 @@ package com.hczhang.hummingbird.cloud.lifecycle;
 
 /**
  * The interface could represent a lifecycle of object or context.
- * The basic cycle is: {@code init} -> {@code start} -> {@code stop}.
+ * The basic cycle is: {@code init} -%3E {@code start} -%3E {@code stop}.
  * We also provide a method to identify if the object is running.
  *
  * Created by steven on 5/21/14.

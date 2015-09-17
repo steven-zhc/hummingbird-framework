@@ -16,7 +16,7 @@ import org.springframework.context.ApplicationContextAware;
 /**
  * A special cloud implementation for Spring framework.
  * It inherits from {@code SimpleEventSourceCloud}. So please refer to {@link SimpleEventSourceCloud} to find
- * more details about the default information.<br/>
+ * more details about the default information.<br>
  * Additional, we add some Aware Classes to cloud, which mean they could scan packages
  * and find out the following class in your class path and maintain them in spring application context .
  * <ul>

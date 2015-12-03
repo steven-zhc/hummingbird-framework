@@ -20,7 +20,7 @@ The build requires a Java 7 JDK as JAVA_HOME, but will ensure Java 7 compatibili
 ### Event Store (Cassandra) Setup
 The schema were located at
 
-     scrpt/cassandra
+     script/cassandra
 
 Execute by order, please update keyspace name in create_keyspace.cql
 

@@ -4,8 +4,6 @@ Smart, Light and Fast.
 
 An implementation of DDD, CQRS, EventStore and etc.
 
-This is core framework for user management team.
-
 TODO add Image
 
 ## Quickstart
